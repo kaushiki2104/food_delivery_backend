@@ -17,13 +17,13 @@ dotenv.config();
 const app = express();
 const server=http.createServer(app)
 // implementation of socket.io
-
+const allowOrigin= [
+      "http://localhost:5173",
+      "https://delivery-webs.netlify.app"
+    ],
 const io=new Server(server,{
   cors:{
-   origin: [
-      "http://localhost:5173",
-      "https://delivery-webs.netlify.app/signin"
-    ],
+   origin: allowOrigin,
   credentials:true,
   methods:['POST','GET']
 }
@@ -36,7 +36,7 @@ app.set('io',io)
 const port = process.env.PORT || 5000;
 
 app.use(cors({
-  origin:"http://localhost:5173",
+  origin: allowOrigin,
   credentials:true
 }))
 
