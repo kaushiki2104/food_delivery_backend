@@ -4,7 +4,8 @@ const isAuth = (req, res, next) => {
   try {
     // ✅ Changed from req.cookies.token to req.headers.token
     const token = req.headers.token;
-
+console.log("cookies:", req.cookies);
+console.log("cookie header:", req.headers.cookie);
     if (!token) {
       return res.status(400).json({ message: "token not found" });
     }
