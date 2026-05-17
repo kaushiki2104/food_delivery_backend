@@ -20,7 +20,7 @@ const server=http.createServer(app)
 const allowOrigin= [
       "http://localhost:5173",
       "https://delivery-webs.netlify.app"
-    ],
+    ];
 const io=new Server(server,{
   cors:{
    origin: allowOrigin,
