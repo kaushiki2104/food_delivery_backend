@@ -39,6 +39,9 @@ app.use(cors({
 
 app.use(express.json());
 app.use(cookieParser());
+app.get('/', (req,res)=>{
+  res.status(200).json({'message':'Server is running fine'})
+})
 app.use("/public", express.static("public"));
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
